@@ -1,4 +1,6 @@
 require 'bundler/setup'
+require 'active_record'
+require_relative '../app/models/student.rb'
 Bundler.require
 
 Dir[File.join(File.dirname(__FILE__), "../app/models", "*.rb")].each {|f| require f}
@@ -18,3 +20,8 @@ def drop_db
     DB.execute("DROP TABLE #{table}")
   end
 end
+
+ActiveRecord::Base.establish_connection(
+  :adapter => "sqlite3",
+  :database => "db/school-test.sqlite"
+)
