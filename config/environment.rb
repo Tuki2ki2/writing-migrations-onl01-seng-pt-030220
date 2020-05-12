@@ -1,6 +1,4 @@
 require 'bundler/setup'
-require 'active_record'
-require 'bundler/setup'
 
 Bundler.require
 
@@ -23,8 +21,3 @@ def drop_db
   end
 end
 
-ActiveRecord::Base.establish_connection(
-  :adapter =>'sqlite3', 
-  :databse => "db/school-test.db"
-)
-require_relative "../app/models/student.rb"
